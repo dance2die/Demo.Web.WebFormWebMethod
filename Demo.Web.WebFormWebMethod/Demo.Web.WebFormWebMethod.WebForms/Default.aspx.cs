@@ -18,6 +18,15 @@ namespace Demo.Web.WebFormWebMethod.WebForms
 		public static string GetData()
 		{
 			var data = new {data = "Hello World"};
+			throw new Exception("Test exception in GetData()");
+			try
+			{
+				throw new Exception("Test exception in GetData()");
+			}
+			catch (Exception e)
+			{
+				System.Diagnostics.Trace.Write(e.ToString());
+			}
 			return JsonConvert.SerializeObject(data);
 		}
 	}
